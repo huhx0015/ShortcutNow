@@ -14,8 +14,8 @@ import android.widget.ImageButton;
 /** -----------------------------------------------------------------------------------------------
  *  [BHN_Main] CLASS
  *  PROGRAMMER: Michael Yoon Huh (HUHX0015)
- *  DESCRIPTION: MainActivity class is responsible for handling the first activity in the app and sets
- *  up the references and the click actions for the color buttons.
+ *  DESCRIPTION: First activity in the application. Creates a desktop shortcut and launches Google Maps
+ *  and begins navigation mode immediately.
  *  -----------------------------------------------------------------------------------------------
  */
 
