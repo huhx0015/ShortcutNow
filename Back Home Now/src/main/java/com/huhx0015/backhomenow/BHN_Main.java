@@ -1,26 +1,30 @@
 package com.huhx0015.backhomenow;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
-/** -----------------------------------------------------------------------------------------------
+/** ------------------------------------------------------------------------------------------------
  *  [BHN_Main] CLASS
  *  PROGRAMMER: Michael Yoon Huh (HUHX0015)
- *  DESCRIPTION: First activity in the application. Creates a desktop shortcut and launches Google Maps
- *  and begins navigation mode immediately.
- *  -----------------------------------------------------------------------------------------------
+ *  DESCRIPTION: This class is the main activity for the application. The user can create a custom
+ *  location shortcut that launches Google Maps and begins navigation mode immediately.
+ *  ------------------------------------------------------------------------------------------------
  */
 
-public class BHN_Main extends ActionBarActivity {
+public class BHN_Main extends Activity {
 
+    /** ACTIVITY LIFECYCLE FUNCTIONALITY _______________________________________________________ **/
+
+    // onCreate(): The initial function that is called when the activity is run. onCreate() only runs
+    // when the activity is first started.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,29 +32,46 @@ public class BHN_Main extends ActionBarActivity {
         setUpButtons(); // Sets up the button listeners for the activity.
     }
 
+    /** ADDITIONAL FUNCTIONALITY _______________________________________________________________ **/
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.bhn__main, menu);
-        return true;
-    }
+    // checkForAppInstall(): Checks to see if the application is installed on the device.
+    private Boolean checkForAppInstalled(String packName) {
 
-    // Handles the settings button.
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
+        PackageManager pm = getPackageManager();
+        boolean isInstalled = false;
+
+        // Checks to see if the package is installed or not.
+        try {
+            pm.getPackageInfo(packName, PackageManager.GET_ACTIVITIES);
+            isInstalled = true;
         }
-        return super.onOptionsItemSelected(item);
+
+        // NameNotFoundException handler.
+        catch (PackageManager.NameNotFoundException e) {
+            isInstalled = false;
+        }
+
+        return isInstalled;
     }
 
-    // Adds the shortcut for MainActivity on Home screen
+    // launchIntent(): Launches Google Maps directly in navigation mode.
+    private void launchIntent() {
+
+        // Assigns the EditText reference to the address input.
+        EditText address_1 = (EditText)findViewById(R.id.address_input_1);
+
+        // Retrieves the address from the user's input.
+        String location = address_1.getText().toString();
+        location = location.replace(" ", "+");
+
+        // Launches the customized Google Maps intent directly in navigation mode.
+        Intent i = new Intent(android.content.Intent.ACTION_VIEW, Uri.parse("google.navigation:q=" + location));
+        i.setClassName("com.google.android.apps.maps", "com.google.android.maps.MapsActivity");
+        startActivity(i);
+    }
+
+    // setShortcut(): Sets up the intent for Google Maps and creates the shortcuts on the user's
+    // homescreen.
     private void setShortcut(int mode) {
 
         // Sets the reference to the address input.
@@ -60,38 +81,42 @@ public class BHN_Main extends ActionBarActivity {
         String location = address_1.getText().toString();
         location = location.replace(" ", "+");
 
-        // Sets the intent for the shortcut.
         // Launches Google Map in navigation mode and begins navigation immediately.
         Intent shortcutIntent = new Intent(android.content.Intent.ACTION_VIEW, Uri.parse("google.navigation:q=" + location));
         shortcutIntent.setAction(Intent.ACTION_VIEW);
 
-        // Creates the shortcut for the intent.
+        // Adds the address in the customized intent for Google Maps.
         Intent addIntent = new Intent();
         addIntent.putExtra(Intent.EXTRA_SHORTCUT_INTENT, shortcutIntent);
         addIntent.putExtra(Intent.EXTRA_SHORTCUT_NAME, this.getResources().getString(R.string.app_name));
 
-        int iconResource = R.drawable.home_icon; // Used for determining the shortcut icon resource.
+        int iconResource = R.drawable.home_icon; // Used for setting the shortcut icon resource.
 
         // Sets the icon based on the selected mode.
         switch (mode) {
 
+            // HOME:
             case 0:
                 iconResource = R.drawable.home_icon;
                 break;
 
+            // WORK:
             case 1:
                 iconResource = R.drawable.work_icon;
                 break;
 
+            // PLACE:
             case 2:
                 iconResource = R.drawable.place_icon;
                 break;
         }
 
+        // Sets the icon resource for the shortcut.
         addIntent.putExtra(Intent.EXTRA_SHORTCUT_ICON_RESOURCE, Intent.ShortcutIconResource.fromContext(getApplicationContext(),
-                iconResource)); // Sets the icon resource for the shortcut.
+                iconResource));
 
-        addIntent.setAction("com.android.launcher.action.INSTALL_SHORTCUT"); // Installs the shortcut on the homescreen.
+        // Installs the shortcut on the homescreen.
+        addIntent.setAction("com.android.launcher.action.INSTALL_SHORTCUT");
         getApplicationContext().sendBroadcast(addIntent);
     }
 
@@ -104,64 +129,91 @@ public class BHN_Main extends ActionBarActivity {
         ImageButton place_button = (ImageButton) findViewById(R.id.place_button);
         Button google_button = (Button) findViewById(R.id.google_button);
 
-        // HOME
+        // HOME Button:
         home_button.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
 
-                //launchIntent(0); // Launches the Google Maps intent with the "HOME" setting.
-                setShortcut(0); // Sets the shortcut on the homescreen.
+                // Checks to see if Google Maps is installed first.
+                if ( !(checkForAppInstalled("com.google.android.apps.maps")) ) {
+
+                    // A Toast message appears, notifying the user that Google Maps is not installed.
+                    Toast.makeText(BHN_Main.this,
+                            "GOOGLE MAPS is not installed. Back Home Now requires GOOGLE MAPS.",+
+                                    Toast.LENGTH_SHORT).show();
+                }
+
+                // Otherwise, the shortcut is created.
+                else {
+                    setShortcut(0); // Sets the "HOME" shortcut on the homescreen.
+                }
             }
         });
 
-        // WORK
+        // WORK Button:
         work_button.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
+                // Checks to see if Google Maps is installed first.
+                if ( !(checkForAppInstalled("com.google.android.apps.maps")) ) {
 
-                //launchIntent(1); // Launches the Google Maps intent with the "WORK" setting.
-                setShortcut(1); // Sets the shortcut on the homescreen.
+                    // A Toast message appears, notifying the user that Google Maps is not installed.
+                    Toast.makeText(BHN_Main.this,
+                            "GOOGLE MAPS is not installed. Back Home Now requires GOOGLE MAPS.",+
+                                    Toast.LENGTH_SHORT).show();
+                }
+
+                // Otherwise, the shortcut is created.
+                else {
+                    setShortcut(1); // Sets the "WORK" shortcut on the homescreen.
+                }
             }
         });
 
-        // PLACE
+        // PLACE Button:
         place_button.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
 
-                //launchIntent(2); // Launches the Google Maps intent with the "PLACE" setting.
-                setShortcut(2); // Sets the shortcut on the homescreen.
+                // Checks to see if Google Maps is installed first.
+                if ( !(checkForAppInstalled("com.google.android.apps.maps")) ) {
+
+                    // A Toast message appears, notifying the user that Google Maps is not installed.
+                    Toast.makeText(BHN_Main.this,
+                            "GOOGLE MAPS is not installed. Back Home Now requires GOOGLE MAPS.",+
+                                    Toast.LENGTH_SHORT).show();
+                }
+
+                // Otherwise, the shortcut is created.
+                else {
+                    setShortcut(2); // Sets the "PLACE" shortcut on the homescreen.
+                }
             }
         });
 
-        // GOOGLE
+        // GOOGLE MAPS Button:
         google_button.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
 
-                launchIntent(); // Launches the Google Maps intent with the "PLACE" setting.
+                // Checks to see if Google Maps is installed first.
+                if ( !(checkForAppInstalled("com.google.android.apps.maps")) ) {
+
+                    // A Toast message appears, notifying the user that Google Maps is not installed.
+                    Toast.makeText(BHN_Main.this,
+                            "GOOGLE MAPS is not installed. Back Home Now requires GOOGLE MAPS.",+
+                                    Toast.LENGTH_SHORT).show();
+                }
+
+                // Otherwise, the shortcut is created.
+                else {
+                    launchIntent(); // Launches the Google Maps intent directly in navigation mode.
+                }
             }
         });
-
-    }
-
-    // Launches Google Maps with immediate start of navigation.
-    private void launchIntent() {
-
-        // INSERT IMAGEVIEW INIT HERE
-        EditText address_1 = (EditText)findViewById(R.id.address_input_1);
-
-        // Retrieves the address in the input string.
-        String location = address_1.getText().toString();
-        location = location.replace(" ", "+");
-
-        // Launches the intent.
-        Intent i = new Intent(android.content.Intent.ACTION_VIEW, Uri.parse("google.navigation:q=" + location));
-        i.setClassName("com.google.android.apps.maps", "com.google.android.maps.MapsActivity");
-        startActivity(i);
     }
 }

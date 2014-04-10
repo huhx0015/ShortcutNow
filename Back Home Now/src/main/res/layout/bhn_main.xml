@@ -6,152 +6,183 @@
     android:background="@android:color/background_dark">
 
     <LinearLayout
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:padding="5dp"
+        android:paddingTop="10dp"
         android:id="@+id/bhn_logo_container">
 
-        <ImageView
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/imageView5"
-            android:padding="5dp" />
+            android:layout_gravity="center_horizontal"
+            android:padding="10dp"
+            android:id="@+id/bhn_logo_sub_container"
+            android:background="@drawable/bhn_button_background">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/bhn_logo"
-            android:src="@drawable/bhn_logo" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/bhn_logo"
+                android:src="@drawable/bhn_logo" />
 
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        android:id="@+id/bhn_main_center_layout">
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:background="@android:color/darker_gray">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bhn_button_background"
+            android:id="@+id/bhn_main_center_row_1"
+            android:padding="10dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="ADDRESS:"
-                android:id="@+id/textView4"
-                android:textColor="@android:color/black"
-                android:layout_gravity="center" />
+                android:id="@+id/address_text"
+                android:textColor="@android:color/white"
+                android:layout_gravity="center"
+                android:typeface="monospace" />
 
             <EditText
-                android:layout_width="wrap_content"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:inputType="textPostalAddress"
                 android:ems="10"
                 android:id="@+id/address_input_1"
                 android:layout_gravity="center"
-                android:textColor="@android:color/black" />
+                android:textColor="@android:color/white" />
         </LinearLayout>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/imageView"
-            android:padding="5dp" />
+            android:id="@+id/bhn_spacer_1"
+            android:padding="5dp"
+            android:visibility="invisible" />
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal|bottom">
+            android:layout_gravity="center_horizontal|bottom"
+            android:id="@+id/bhn_main_center_row_2">
 
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:padding="5dp">
+                android:padding="10dp"
+                android:id="@+id/bhn_home_button_container">
 
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/home_button"
                     android:layout_gravity="center"
-                    android:src="@drawable/home_icon" />
+                    android:src="@drawable/home_icon"
+                    android:background="@drawable/bhn_button_background"
+                    android:padding="20dp"
+                    android:clickable="true" />
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/imageView2"
-                    android:padding="5dp" />
+                    android:id="@+id/bhn_home_spacer"
+                    android:padding="5dp"
+                    android:visibility="invisible" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="HOME"
-                    android:id="@+id/textView"
+                    android:id="@+id/home_text"
                     android:textColor="@android:color/white"
-                    android:textSize="24sp" />
+                    android:textSize="20sp"
+                    android:typeface="monospace"
+                    android:layout_gravity="center_horizontal" />
             </LinearLayout>
 
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:padding="5dp">
+                android:padding="10dp"
+                android:id="@+id/bhn_work_button_container">
 
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/work_button"
                     android:layout_gravity="center"
-                    android:src="@drawable/work_icon" />
+                    android:src="@drawable/work_icon"
+                    android:padding="20dp"
+                    android:background="@drawable/bhn_button_background"
+                    android:clickable="true" />
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/imageView4"
-                    android:padding="5dp" />
+                    android:id="@+id/bhn_work_button_spacer"
+                    android:padding="5dp"
+                    android:visibility="invisible" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="WORK"
-                    android:id="@+id/textView2"
+                    android:id="@+id/work_text"
                     android:textColor="@android:color/white"
-                    android:textSize="24sp" />
+                    android:textSize="20sp"
+                    android:typeface="monospace"
+                    android:layout_gravity="center_horizontal" />
             </LinearLayout>
 
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:padding="5dp">
+                android:padding="10dp"
+                android:id="@+id/bhn_place_button_container">
 
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/place_button"
                     android:layout_gravity="center"
-                    android:src="@drawable/place_icon" />
+                    android:src="@drawable/place_icon"
+                    android:background="@drawable/bhn_button_background"
+                    android:padding="20dp"
+                    android:clickable="true" />
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/imageView3"
-                    android:padding="5dp" />
+                    android:id="@+id/bhn_place_container_spacer"
+                    android:padding="5dp"
+                    android:visibility="invisible" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="PLACE"
-                    android:id="@+id/textView3"
+                    android:id="@+id/bhn_place_text"
                     android:textColor="@android:color/white"
-                    android:textSize="24sp" />
+                    android:textSize="20sp"
+                    android:typeface="monospace"
+                    android:layout_gravity="center_horizontal" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
@@ -160,19 +191,21 @@
         android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal|bottom">
+        android:layout_gravity="center_horizontal|bottom"
+        android:id="@+id/bhn_main_bottom_layout"
+        android:padding="25dp">
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="GOOGLE MAPS"
             android:id="@+id/google_button"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:background="@drawable/bhn_button_background"
+            android:padding="10dp"
+            android:clickable="true"
+            android:typeface="monospace" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageView6" />
     </LinearLayout>
 
 </FrameLayout>
