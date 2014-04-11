@@ -88,7 +88,7 @@ public class BHN_Main extends Activity {
         // Adds the address in the customized intent for Google Maps.
         Intent addIntent = new Intent();
         addIntent.putExtra(Intent.EXTRA_SHORTCUT_INTENT, shortcutIntent);
-        addIntent.putExtra(Intent.EXTRA_SHORTCUT_NAME, this.getResources().getString(R.string.app_name));
+        addIntent.putExtra(Intent.EXTRA_SHORTCUT_NAME, address_1.getText().toString());
 
         int iconResource = R.drawable.home_icon; // Used for setting the shortcut icon resource.
 
