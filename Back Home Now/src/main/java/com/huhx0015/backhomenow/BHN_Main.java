@@ -59,10 +59,22 @@ public class BHN_Main extends Activity {
 
         // Assigns the EditText reference to the address input.
         EditText address_1 = (EditText)findViewById(R.id.address_input_1);
+        String location = new String();
 
         // Retrieves the address from the user's input.
-        String location = address_1.getText().toString();
-        location = location.replace(" ", "+");
+        try {
+            location = address_1.getText().toString();
+            location = location.replace(" ", "+");
+        }
+
+        // NullPointerException handler.
+        catch (NullPointerException e) {
+
+            // A Toast message appears, notifying the user about the error.
+            Toast.makeText(BHN_Main.this,
+                    "ERROR: NULLPOINTEREXCEPTION ENCOUNTERED WHILE RETRIEVING ADDRESS INPUT.",+
+                            Toast.LENGTH_SHORT).show();
+        }
 
         // Launches the customized Google Maps intent directly in navigation mode.
         Intent i = new Intent(android.content.Intent.ACTION_VIEW, Uri.parse("google.navigation:q=" + location));
@@ -76,10 +88,22 @@ public class BHN_Main extends Activity {
 
         // Sets the reference to the address input.
         EditText address_1 = (EditText) findViewById (R.id.address_input_1);
+        String location = new String();
 
-        // Retrieves the address in the input string.
-        String location = address_1.getText().toString();
-        location = location.replace(" ", "+");
+        // Retrieves the address from the user's input.
+        try {
+            location = address_1.getText().toString();
+            location = location.replace(" ", "+");
+        }
+
+        // NullPointerException handler.
+        catch (NullPointerException e) {
+
+            // A Toast message appears, notifying the user about the error.
+            Toast.makeText(BHN_Main.this,
+                    "ERROR: NULLPOINTEREXCEPTION ENCOUNTERED WHILE RETRIEVING ADDRESS INPUT.",+
+                            Toast.LENGTH_SHORT).show();
+        }
 
         // Launches Google Map in navigation mode and begins navigation immediately.
         Intent shortcutIntent = new Intent(android.content.Intent.ACTION_VIEW, Uri.parse("google.navigation:q=" + location));
