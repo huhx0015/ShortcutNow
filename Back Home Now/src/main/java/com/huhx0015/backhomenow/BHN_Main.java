@@ -137,11 +137,7 @@ public class BHN_Main extends Activity {
 
                 // Checks to see if Google Maps is installed first.
                 if ( !(checkForAppInstalled("com.google.android.apps.maps")) ) {
-
-                    // A Toast message appears, notifying the user that Google Maps is not installed.
-                    Toast.makeText(BHN_Main.this,
-                            "GOOGLE MAPS is not installed. Back Home Now requires GOOGLE MAPS.",+
-                                    Toast.LENGTH_SHORT).show();
+                    toastyPopUp(); // Displays a Toast popup.
                 }
 
                 // Otherwise, the shortcut is created.
@@ -158,11 +154,7 @@ public class BHN_Main extends Activity {
             public void onClick(View v) {
                 // Checks to see if Google Maps is installed first.
                 if ( !(checkForAppInstalled("com.google.android.apps.maps")) ) {
-
-                    // A Toast message appears, notifying the user that Google Maps is not installed.
-                    Toast.makeText(BHN_Main.this,
-                            "GOOGLE MAPS is not installed. Back Home Now requires GOOGLE MAPS.",+
-                                    Toast.LENGTH_SHORT).show();
+                    toastyPopUp(); // Displays a Toast popup.
                 }
 
                 // Otherwise, the shortcut is created.
@@ -180,11 +172,7 @@ public class BHN_Main extends Activity {
 
                 // Checks to see if Google Maps is installed first.
                 if ( !(checkForAppInstalled("com.google.android.apps.maps")) ) {
-
-                    // A Toast message appears, notifying the user that Google Maps is not installed.
-                    Toast.makeText(BHN_Main.this,
-                            "GOOGLE MAPS is not installed. Back Home Now requires GOOGLE MAPS.",+
-                                    Toast.LENGTH_SHORT).show();
+                    toastyPopUp(); // Displays a Toast popup.
                 }
 
                 // Otherwise, the shortcut is created.
@@ -202,11 +190,7 @@ public class BHN_Main extends Activity {
 
                 // Checks to see if Google Maps is installed first.
                 if ( !(checkForAppInstalled("com.google.android.apps.maps")) ) {
-
-                    // A Toast message appears, notifying the user that Google Maps is not installed.
-                    Toast.makeText(BHN_Main.this,
-                            "GOOGLE MAPS is not installed. Back Home Now requires GOOGLE MAPS.",+
-                                    Toast.LENGTH_SHORT).show();
+                    toastyPopUp(); // Displays a Toast popup.
                 }
 
                 // Otherwise, the shortcut is created.
@@ -215,5 +199,15 @@ public class BHN_Main extends Activity {
                 }
             }
         });
+    }
+
+    // toastyPopUp(): Creates and displays a Toast popup, informing the user that Google Maps needs
+    // to be installed to continue.
+    private void toastyPopUp() {
+
+        // A Toast message appears, notifying the user that Google Maps is not installed.
+        Toast.makeText(BHN_Main.this,
+                "GOOGLE MAPS is not installed. Back Home Now requires GOOGLE MAPS.",+
+                        Toast.LENGTH_SHORT).show();
     }
 }
