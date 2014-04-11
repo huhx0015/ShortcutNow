@@ -71,9 +71,7 @@ public class BHN_Main extends Activity {
         catch (NullPointerException e) {
 
             // A Toast message appears, notifying the user about the error.
-            Toast.makeText(BHN_Main.this,
-                    "ERROR: NULLPOINTEREXCEPTION ENCOUNTERED WHILE RETRIEVING ADDRESS INPUT.",+
-                            Toast.LENGTH_SHORT).show();
+            toastyPopUp("ERROR: NULLPOINTEREXCEPTION ENCOUNTERED WHILE RETRIEVING ADDRESS INPUT.");
         }
 
         // Launches the customized Google Maps intent directly in navigation mode.
@@ -100,9 +98,7 @@ public class BHN_Main extends Activity {
         catch (NullPointerException e) {
 
             // A Toast message appears, notifying the user about the error.
-            Toast.makeText(BHN_Main.this,
-                    "ERROR: NULLPOINTEREXCEPTION ENCOUNTERED WHILE RETRIEVING ADDRESS INPUT.",+
-                            Toast.LENGTH_SHORT).show();
+            toastyPopUp("ERROR: NULLPOINTEREXCEPTION ENCOUNTERED WHILE RETRIEVING ADDRESS INPUT.");
         }
 
         // Launches Google Map in navigation mode and begins navigation immediately.
@@ -161,7 +157,9 @@ public class BHN_Main extends Activity {
 
                 // Checks to see if Google Maps is installed first.
                 if ( !(checkForAppInstalled("com.google.android.apps.maps")) ) {
-                    toastyPopUp(); // Displays a Toast popup.
+
+                    // Displays a Toast popup.
+                    toastyPopUp("GOOGLE MAPS is not installed. Back Home Now requires GOOGLE MAPS.");
                 }
 
                 // Otherwise, the shortcut is created.
@@ -178,7 +176,9 @@ public class BHN_Main extends Activity {
             public void onClick(View v) {
                 // Checks to see if Google Maps is installed first.
                 if ( !(checkForAppInstalled("com.google.android.apps.maps")) ) {
-                    toastyPopUp(); // Displays a Toast popup.
+
+                    // Displays a Toast popup.
+                    toastyPopUp("GOOGLE MAPS is not installed. Back Home Now requires GOOGLE MAPS.");
                 }
 
                 // Otherwise, the shortcut is created.
@@ -196,7 +196,9 @@ public class BHN_Main extends Activity {
 
                 // Checks to see if Google Maps is installed first.
                 if ( !(checkForAppInstalled("com.google.android.apps.maps")) ) {
-                    toastyPopUp(); // Displays a Toast popup.
+
+                    // Displays a Toast popup.
+                    toastyPopUp("GOOGLE MAPS is not installed. Back Home Now requires GOOGLE MAPS.");
                 }
 
                 // Otherwise, the shortcut is created.
@@ -214,7 +216,9 @@ public class BHN_Main extends Activity {
 
                 // Checks to see if Google Maps is installed first.
                 if ( !(checkForAppInstalled("com.google.android.apps.maps")) ) {
-                    toastyPopUp(); // Displays a Toast popup.
+
+                    // Displays a Toast popup.
+                    toastyPopUp("GOOGLE MAPS is not installed. Back Home Now requires GOOGLE MAPS.");
                 }
 
                 // Otherwise, the shortcut is created.
@@ -227,11 +231,9 @@ public class BHN_Main extends Activity {
 
     // toastyPopUp(): Creates and displays a Toast popup, informing the user that Google Maps needs
     // to be installed to continue.
-    private void toastyPopUp() {
+    private void toastyPopUp(String message) {
 
         // A Toast message appears, notifying the user that Google Maps is not installed.
-        Toast.makeText(BHN_Main.this,
-                "GOOGLE MAPS is not installed. Back Home Now requires GOOGLE MAPS.",+
-                        Toast.LENGTH_SHORT).show();
+        Toast.makeText(BHN_Main.this, message, + Toast.LENGTH_SHORT).show();
     }
 }
