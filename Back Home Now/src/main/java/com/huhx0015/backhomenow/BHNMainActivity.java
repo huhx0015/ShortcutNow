@@ -1,10 +1,10 @@
 package com.huhx0015.backhomenow;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,14 +12,14 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 /** ------------------------------------------------------------------------------------------------
- *  [BHN_Main] CLASS
+ *  [BHNMainActivity] CLASS
  *  PROGRAMMER: Michael Yoon Huh (HUHX0015)
  *  DESCRIPTION: This class is the main activity for the application. The user can create a custom
  *  location shortcut that launches Google Maps and begins navigation mode immediately.
  *  ------------------------------------------------------------------------------------------------
  */
 
-public class BHN_Main extends Activity {
+public class BHNMainActivity extends AppCompatActivity {
 
     /** ACTIVITY LIFECYCLE FUNCTIONALITY _______________________________________________________ **/
 
@@ -234,6 +234,6 @@ public class BHN_Main extends Activity {
     private void toastyPopUp(String message) {
 
         // A Toast message appears, notifying the user that Google Maps is not installed.
-        Toast.makeText(BHN_Main.this, message, + Toast.LENGTH_SHORT).show();
+        Toast.makeText(BHNMainActivity.this, message, Toast.LENGTH_SHORT).show();
     }
 }

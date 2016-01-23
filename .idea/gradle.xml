@@ -7,12 +7,17 @@
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
           <set>
-            <option value="C:\Users\Michael Yoon Huh\Development\Android\BackHomeNow" />
-            <option value="C:\Users\Michael Yoon Huh\Development\Android\BackHomeNow\Back Home Now" />
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/Back Home Now" />
+          </set>
+        </option>
+        <option name="myModules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/Back Home Now" />
           </set>
         </option>
       </GradleProjectSettings>
     </option>
   </component>
 </project>
-
