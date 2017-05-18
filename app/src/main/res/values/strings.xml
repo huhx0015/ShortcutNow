@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--APPLICATION STRINGS-->
+    <string name="app_name">Shortcut Now</string>
+
+    <!--MAIN STRINGS-->
+    <string name="label_location_name">Location Name</string>
+    <string name="label_address">Address</string>
+    <string name="label_save_shortcut">Save Shortcut</string>
+    <string name="hint_location_name">Enter a Location Name</string>
+    <string name="hint_address">Enter a Address</string>
+    <string name="button_launch_navigation">Launch Navigation</string>
+
+    <!--SNACKBAR STRINGS-->
+    <string name="success_shortcut_created">Shortcut was added to the homescreen.</string>
+    <string name="error_field_input">Please input an location name and address.</string>
+    <string name="error_google_maps">Google Maps is not installed. Please install Google Maps.</string>
+
+</resources>
