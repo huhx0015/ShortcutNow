@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!--APPLICATION STRINGS-->
     <string name="app_name">Back Home Now</string>
-    <string name="title_activity_main">MainActivity</string>
+
+    <!--LABEL STRINGS-->
+    <string name="location_name">Location Name</string>
+    <string name="address">Address</string>
+    <string name="save_shortcut">Save Shortcut</string>
 
 </resources>

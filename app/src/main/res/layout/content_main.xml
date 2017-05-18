@@ -19,6 +19,8 @@
         <android.support.v7.widget.AppCompatTextView
             android:id="@+id/main_location_text"
             android:text="LOCATION NAME"
+            android:textColor="@color/colorAccent"
+            android:textSize="14sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"/>
@@ -35,13 +37,13 @@
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="8dp">
+                android:padding="4dp">
 
                 <android.support.design.widget.TextInputEditText
                     android:id="@+id/main_location_field"
-                    android:hint="HELLO"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:hint="HELLO" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -50,10 +52,12 @@
         <android.support.v7.widget.AppCompatTextView
             android:id="@+id/main_address_text"
             android:text="ADDRESS"
+            android:textColor="@color/colorAccent"
+            android:textSize="14sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:layout_marginBottom="8dp"/>
+            android:layout_marginBottom="8dp" />
 
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
@@ -67,24 +71,75 @@
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="8dp">
+                android:padding="4dp">
 
                 <android.support.design.widget.TextInputEditText
                     android:id="@+id/main_address_field"
-                    android:hint="HELLO"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:hint="HELLO" />
 
             </android.support.design.widget.TextInputLayout>
 
         </android.support.v7.widget.CardView>
 
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/main_shortcut_text"
+            android:text="SAVE SHORTCUT"
+            android:textColor="@color/colorAccent"
+            android:textSize="14sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <android.support.v7.widget.AppCompatImageButton
+                android:id="@+id/main_home_button"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_marginRight="8dp"
+                android:background="@drawable/selector_green_border_button"
+                android:scaleType="fitCenter"
+                android:elevation="2dp"
+                app:srcCompat="@drawable/ic_home_icon" />
+
+            <android.support.v7.widget.AppCompatImageButton
+                android:id="@+id/main_work_button"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:background="@drawable/selector_green_border_button"
+                android:scaleType="fitCenter"
+                android:elevation="2dp"
+                app:srcCompat="@drawable/ic_work_icon" />
+
+            <android.support.v7.widget.AppCompatImageButton
+                android:id="@+id/main_place_button"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_marginLeft="8dp"
+                android:background="@drawable/selector_green_border_button"
+                android:scaleType="fitCenter"
+                android:elevation="2dp"
+                app:srcCompat="@drawable/ic_place_icon" />
+
+        </LinearLayout>
+
     </LinearLayout>
 
     <android.support.v7.widget.AppCompatButton
+        android:id="@+id/main_navigation_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/selector_green_button"
         android:layout_alignParentBottom="true"
-        android:text="LAUNCH" />
+        android:textColor="@android:color/white"
+        android:text="LAUNCH"
+        android:elevation="2dp"/>
 
 </RelativeLayout>
