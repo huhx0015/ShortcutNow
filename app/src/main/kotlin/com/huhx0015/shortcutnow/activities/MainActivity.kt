@@ -1,6 +1,7 @@
 package com.huhx0015.shortcutnow.activities
 
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.support.design.widget.CoordinatorLayout
 import android.support.design.widget.Snackbar
 import android.support.design.widget.TextInputEditText
@@ -37,9 +38,11 @@ class MainActivity : AppCompatActivity() {
     // LAYOUT VARIABLES:
     private var mActivityLayout: CoordinatorLayout? = null
 
-    // PACKAGE VARIABLES:
+    // CONSTANT VARIABLES:
     companion object {
         private val PACKAGE_GOOGLE_MAPS = "com.google.android.apps.maps"
+        private val INSTANCE_ADDRESS = "MainActivity.Address"
+        private val INSTANCE_LOCATION_NAME = "MainActivity.LocationName"
     }
 
     /** ACTIVITY LIFECYCLE METHODS _____________________________________________________________ **/
@@ -49,13 +52,28 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        mActivityLayout = findViewById(R.id.main_activity_layout) as CoordinatorLayout
+
+        if (savedInstanceState != null) {
+            mAddress = savedInstanceState.getString(INSTANCE_ADDRESS)
+            mLocationName = savedInstanceState.getString(INSTANCE_LOCATION_NAME)
+        }
+
         initView()
+    }
+
+    /** ACTIVITY EXTENSION METHODS _____________________________________________________________ **/
+
+    override fun onSaveInstanceState(outState: Bundle?, outPersistentState: PersistableBundle?) {
+        super.onSaveInstanceState(outState, outPersistentState)
+        outState?.putString(INSTANCE_ADDRESS, mAddress)
+        outState?.putString(INSTANCE_LOCATION_NAME, mLocationName)
     }
 
     /** INIT METHODS ___________________________________________________________________________ **/
 
     private fun initView() {
+        mActivityLayout = findViewById(R.id.main_activity_layout) as CoordinatorLayout
+
         initButtons()
         initInputFields()
         initToolbar()
