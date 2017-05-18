@@ -8,7 +8,7 @@
     android:padding="16dp"
     android:focusableInTouchMode="true"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.huhx0015.backhomenow.activities.MainActivity"
+    tools:context="com.huhx0015.shortcutnow.activities.MainActivity"
     tools:showIn="@layout/activity_main">
 
     <LinearLayout

@@ -2,7 +2,7 @@
 <resources>
 
     <!--APPLICATION STRINGS-->
-    <string name="app_name">Back Home Now</string>
+    <string name="app_name">Shortcut Now</string>
 
     <!--MAIN STRINGS-->
     <string name="label_location_name">Location Name</string>

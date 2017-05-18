@@ -1,4 +1,4 @@
-package com.huhx0015.backhomenow.activities
+package com.huhx0015.shortcutnow.activities
 
 import android.os.Bundle
 import android.support.design.widget.CoordinatorLayout
@@ -11,12 +11,12 @@ import android.support.v7.widget.AppCompatImageButton
 import android.support.v7.widget.Toolbar
 import android.text.Editable
 import android.text.TextWatcher
-import com.huhx0015.backhomenow.R
-import com.huhx0015.backhomenow.listeners.ShortcutListener
-import com.huhx0015.backhomenow.utils.NavigationUtils
-import com.huhx0015.backhomenow.utils.PackageUtils
-import com.huhx0015.backhomenow.utils.ShortcutUtils
-import com.huhx0015.backhomenow.utils.SnackbarUtils
+import com.huhx0015.shortcutnow.R
+import com.huhx0015.shortcutnow.listeners.ShortcutListener
+import com.huhx0015.shortcutnow.utils.NavigationUtils
+import com.huhx0015.shortcutnow.utils.PackageUtils
+import com.huhx0015.shortcutnow.utils.ShortcutUtils
+import com.huhx0015.shortcutnow.utils.SnackbarUtils
 
 /** ------------------------------------------------------------------------------------------------
  *  [MainActivity] CLASS

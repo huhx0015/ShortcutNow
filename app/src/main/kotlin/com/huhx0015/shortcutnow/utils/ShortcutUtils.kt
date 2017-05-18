@@ -1,9 +1,9 @@
-package com.huhx0015.backhomenow.utils
+package com.huhx0015.shortcutnow.utils
 
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
-import com.huhx0015.backhomenow.listeners.ShortcutListener
+import com.huhx0015.shortcutnow.listeners.ShortcutListener
 
 /**
  * Created by Michael Yoon Huh on 5/17/2017.

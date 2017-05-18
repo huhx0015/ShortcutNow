@@ -6,7 +6,7 @@
                 android:width="3dp"
                 android:color="@color/colorAccent" />
             <solid
-                android:color="#E0E0E0" >
+                android:color="@color/colorAccent" >
             </solid>
             <corners
                 android:radius="4dp" />

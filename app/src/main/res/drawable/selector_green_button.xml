@@ -4,7 +4,7 @@
     <item android:state_pressed="true">
         <shape>
             <solid
-                android:color="@android:color/white" >
+                android:color="@color/colorLightAccent" >
             </solid>
             <corners
                 android:radius="2dp" />

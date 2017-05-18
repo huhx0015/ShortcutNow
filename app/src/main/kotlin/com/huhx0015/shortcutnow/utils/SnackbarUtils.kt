@@ -1,4 +1,4 @@
-package com.huhx0015.backhomenow.utils
+package com.huhx0015.shortcutnow.utils
 
 import android.support.design.widget.Snackbar
 import android.view.View
