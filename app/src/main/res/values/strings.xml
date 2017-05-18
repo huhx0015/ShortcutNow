@@ -4,9 +4,17 @@
     <!--APPLICATION STRINGS-->
     <string name="app_name">Back Home Now</string>
 
-    <!--LABEL STRINGS-->
-    <string name="location_name">Location Name</string>
-    <string name="address">Address</string>
-    <string name="save_shortcut">Save Shortcut</string>
+    <!--MAIN STRINGS-->
+    <string name="label_location_name">Location Name</string>
+    <string name="label_address">Address</string>
+    <string name="label_save_shortcut">Save Shortcut</string>
+    <string name="hint_location_name">Enter a Location Name</string>
+    <string name="hint_address">Enter a Address</string>
+    <string name="button_launch_navigation">Launch Navigation</string>
+
+    <!--SNACKBAR STRINGS-->
+    <string name="success_shortcut_created">Shortcut was added to the homescreen.</string>
+    <string name="error_field_input">Please input an location name and address.</string>
+    <string name="error_google_maps">Google Maps is not installed. Please install Google Maps.</string>
 
 </resources>
