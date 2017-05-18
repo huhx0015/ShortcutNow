@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
     private var mAddress: String = ""
     private var mLocationName: String = ""
 
-    // LAYOUT VARIABLES:
+    // VIEW VARIABLES:
     private var mActivityLayout: CoordinatorLayout? = null
 
     // CONSTANT VARIABLES:
@@ -53,12 +53,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        if (savedInstanceState != null) {
-            mAddress = savedInstanceState.getString(INSTANCE_ADDRESS)
-            mLocationName = savedInstanceState.getString(INSTANCE_LOCATION_NAME)
-        }
-
         initView()
+
+        if (savedInstanceState != null) {
+            mAddress = savedInstanceState.getString(INSTANCE_ADDRESS, "")
+            mLocationName = savedInstanceState.getString(INSTANCE_LOCATION_NAME, "")
+        }
     }
 
     /** ACTIVITY EXTENSION METHODS _____________________________________________________________ **/

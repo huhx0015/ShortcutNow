@@ -4,7 +4,7 @@ Shortcut Now
 DEVELOPER: huhx0015
 
 ### SHORTCUT NOW
-![backhomenow_preview](https://cloud.githubusercontent.com/assets/1645482/12526942/71a5e960-c128-11e5-8d65-d2815585ecba.gif)
+![shortcutnow_preview](https://cloud.githubusercontent.com/assets/1645482/26193364/fa159af4-3b69-11e7-9514-ae8e6022add1.gif)
 
 ## Description
 
